@@ -2,6 +2,7 @@ language: c
 branches:
   only:
   - master
+  - travis
 
 sudo: false
 
@@ -61,6 +62,7 @@ script:
   # generating index.agda
   - ./index.sh
   # building the docs
+  - agda -i . -i src -c --no-main index.agda
   - agda -i . -i src/ --html index.agda
   # moving everything at the root
   - mv html/* .
